@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	 <!-- 
+	 	By default Spring Boot use a log rotation based on file size, I prefer time based rotation so I override only the `FILE` appender.
+	 	(see: http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-configure-logback-for-logging)
+	  -->
+    
+    <!-- Keep Spring Boot default conf -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    
+    <!-- Keep Spring Boot console appender as is -->
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	
+	<!-- Refer to a Spring known property to make it available from Logback (http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#_environment_properties)  -->
+	<springProperty name="spring.application.name" source="spring.application.name"/>
+    
+    <!-- Override Spring Boot file appender to make time based log file rotation -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<!-- Reuse Sprinb Boot default pattern (https://github.com/spring-projects/spring-boot/blob/master/spring-boot/src/main/resources/org/springframework/boot/logging/logback/defaults.xml) -->
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<!-- Current log file doesn't have date suffix (see http://logback.qos.ch/manual/appenders.html#tbrpFileNamePattern) -->
+		<file>${logging.path}/${spring.application.name}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- Append date suffix when rotate log files -->
+			<fileNamePattern>${logging.path}/${spring.application.name}_%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!-- Purge old log files (happend on log rotate event) -->
+			<maxHistory>7</maxHistory>
+			<!-- Perform purge at app start (for apps with short life cycle which don't trigger log rotation) -->
+			<cleanHistoryOnStart>true</cleanHistoryOnStart>
+		</rollingPolicy>
+	</appender>
+	
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+    
+</configuration>

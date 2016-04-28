@@ -23,3 +23,11 @@ Difference between them ? Spring Boot of course !
 `hello-world-sb-jersey-minimum` is simply the Spring Boot version of `hello-world-jersey-minimum`.  
 
 For both, I followed Servlet 3.0 spec, thanks to [this Xebia tuto](http://blog.xebia.fr/2014/04/22/construire-une-api-rest-avec-jersey-et-spring-sans-web-xml-ni-applicationcontext-xml-ni-getterssetters/).
+
+## `hello-world-jersey-logs`
+
+This project demonstrate how it is easy to setup logs with Spring Boot.
+- I add a [embedded `application.properties`](hello-world-sb-jersey-logs/src/main/resources/application.properties) to be able to default some Spring Boot settings, here only `spring.application.name`.
+- Have a look at [logback-spring.xml](dev/hello-world-sb-jersey-logs/config/logback-spring.xml)
+  - [By default](https://github.com/spring-projects/spring-boot/blob/master/spring-boot/src/main/resources/org/springframework/boot/logging/logback/file-appender.xml) Spring Boot use a log rotation based on file size, I prefer time based rotation so I override the `FILE` appender and keep other default settings.
+  - Note that I use `<springProperty name="spring.application.name" source="spring.application.name"/>` to refer to the property I have set in the [embedded `application.properties`](hello-world-sb-jersey-logs/src/main/resources/application.properties) and use it as the base name of log files.
