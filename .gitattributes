@@ -1,0 +1,6 @@
+# Les scripts shells sont forcement en fin de ligne UNIX, quelque-soit la plateforme
+*.sh text eol=lf
+*.ksh text eol=lf
+
+# De meme pour les scripts batch windows, forcement en CRLF...
+*.bat text eol=crlf
