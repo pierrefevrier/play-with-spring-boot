@@ -1,7 +1,7 @@
 Play with Spring Boot
 =====================
 
-Spring Boot is something really exciting, every Java geek should have hear about it !  
+Spring Boot is something really exciting (see [1.3.0 release note](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.3-Release-Notes) to convince yourself), every Java geek should have hear about it !  
 
 Let's play with it, with easy understandable examples :)  
 
