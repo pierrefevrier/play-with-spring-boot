@@ -34,14 +34,13 @@
 			<artifactId>jersey-container-servlet</artifactId>
 		</dependency>
 
-		<!-- Intégration Jersey / Spring -->
+		<!-- Jersey / Spring integration -->
 		<dependency>
 			<groupId>org.glassfish.jersey.ext</groupId>
 			<artifactId>jersey-spring3</artifactId>
 		</dependency>
 
-		<!-- Spécification Servlet (pour que Maven trouve les imports à l'init 
-			de l'application) -->
+		<!-- Servlet spec (to avoid Eclipse / Maven import erros)  -->			
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -54,8 +53,7 @@
 
 		<dependencies>
 
-			<!-- Utilisation du BOM Jersey pour avoir une cohérence dans les versions 
-				des composants Jersey -->
+			<!-- Use Jersey's BOM to get coherent dependencies versions -->
 			<dependency>
 				<groupId>org.glassfish.jersey</groupId>
 				<artifactId>jersey-bom</artifactId>
@@ -69,7 +67,7 @@
 
 	<build>
 		<plugins>
-			<!-- Force la compilation en Java 8 -->
+			<!-- Compile in Java 8 -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
@@ -79,17 +77,18 @@
 				</configuration>
 			</plugin>
 
-			<!-- Packaging du war -->
+			<!-- Package war -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
+					<!-- We don't have web.xml anymore since Servlet 3.0 -->
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 
-			<!-- Déploiement sur Tomcat -->
+			<!-- Deploy to Tomcat -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
