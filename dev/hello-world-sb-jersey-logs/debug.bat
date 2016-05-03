@@ -1,5 +1,5 @@
 call mvn clean package spring-boot:run ^
-	-D logging.level.com.bouygtel.springbootsample=DEBUG ^
+	-D logging.level.fr.pierrefevrier.playwithspringboot=DEBUG ^
 	-D debug=true ^
 	-D logging.config="%WORKSPACE_HOME%/dev/hello-world-sb-jersey-logs/config/logback-spring.xml" ^
 	-D logging.path="%WORKSPACE_HOME%/dev/logs" ^
