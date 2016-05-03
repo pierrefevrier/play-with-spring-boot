@@ -18,6 +18,6 @@ public class ResourceHelloWorld {
 	public String home() {
 		LOGGER.info("Here I'm...");
 		LOGGER.debug("...I'm here too  !");
-		return "Hello World from Spring Boot with logs custom handling !";
+		return "Hello World from Spring Boot with custom logs handling !";
 	}
 }
