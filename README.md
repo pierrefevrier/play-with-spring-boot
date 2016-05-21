@@ -48,3 +48,8 @@ Example of an app that check args at boot and exit if it isn't compliant.
 - Also notice `<configuration><executable>true</executable></configuration>` in [`pom.xml`](hello-world-sb-jersey-command-line-args/pom.xml), this simple param convert the output jar file to a fully executable one:
  - Without this instruction, you have to start your jar with `java -jar myapp.jar`
  - With this instruction, you have to start your jar like any executable: `./myapp.jar`
+
+## `hello-world-sb-jersey-actuator`
+
+The last but not the least : [the Actuator](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready).
+With juste few lines of conf, it enable a lof of production features to control and check your app.
