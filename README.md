@@ -51,5 +51,5 @@ Example of an app that check args at boot and exit if it isn't compliant.
 
 ## `hello-world-sb-jersey-actuator`
 
-The last but not the least : [the Actuator](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready).
+The last but not the least : [the Actuator](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready).  
 With juste few lines of conf, it enable a lof of production features to control and check your app.
