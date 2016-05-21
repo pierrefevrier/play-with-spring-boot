@@ -41,3 +41,6 @@ See how Spring Boot detect changes on the classpath and restart automatically ap
 
 Example of an app that check args at boot and exit if it isn't compliant.
 - Focus on [ArgsValidator](hello-world-sb-jersey-command-line-args/src/main/java/com/bouygtel/springbootsample/config/ArgsValidator.java) class to see how it works (as always, it is easy understandable).
+- Also notice `<configuration><executable>true</executable></configuration>` in [`pom.xml`](hello-world-sb-jersey-command-line-args/pom.xml), this simple param convert the output jar file to a fully executable one:
+ - Without this instruction, you have to start your jar with `java -jar myapp.jar`
+ - With this instruction, you have to start your jar like any executable: `./myapp.jar`
