@@ -37,6 +37,10 @@ This project demonstrate how it is easy to setup logs with Spring Boot.
 See how Spring Boot detect changes on the classpath and restart automatically app to reflect changes (more infos here: https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3).
 - Note that it doesn't work when app is running with [maven command line](dev/hello-world-sb-jersey-dev-tools), you have to use `Run As > Java Application` or `Run As > Spring Boot App`
 
+## `hello-world-sb-jersey-tests`
+
+You want to make some integration tests, see how it is easy to start your app and call it from your [JUnit test](hello-world-sb-jersey-tests/src/test/java/test/fr/pierrefevrier/playwithspringboot/SimpleIntegrationTest.java)
+
 ## `hello-world-sb-jersey-command-line-args`
 
 Example of an app that check args at boot and exit if it isn't compliant.
